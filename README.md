@@ -29,21 +29,21 @@ The goal of this project is to build a model that can accurately classify images
 -  First, we connected Colab to our Drive so we could use the data.
 -  Then, we imported all the Python libraries we needed, each one playing a specific role in the project.
 
-# Data manipulation and numerical computation
+###Data manipulation and numerical computation
 import numpy as np
 
-# General machine learning utilities
+###General machine learning utilities
 import sklearn
 
-# Image processing
+###Image processing
 import cv2
 
-# System and OS related
+###System and OS related
 import os, sys
-# JSON handling
+###JSON handling
 import json
 
-# Deep learning framework
+###Deep learning framework
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.models import Sequential, Model
@@ -51,14 +51,14 @@ from tensorflow.keras.layers import Dense, Flatten, Activation, BatchNormalizati
 from tensorflow.keras.activations import relu, softmax
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-# Transfer learning models
+###Transfer learning models
 from tensorflow.keras.applications.vgg16 import VGG16
 from tensorflow.keras.applications import ResNet50
 
-# Model loading
+###Model loading
 from tensorflow.keras.models import load_model
 
-# Model evaluation (confusion matrix)
+###Model evaluation (confusion matrix)
 from sklearn.metrics import confusion_matrix
 
 
