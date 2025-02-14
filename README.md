@@ -84,7 +84,7 @@ from sklearn.metrics import confusion_matrix
     shear_range=0.2,  # Apply shearing transformations  
     zoom_range=0.2,  # Randomly zoom in images  
     horizontal_flip=True,  # Flip images horizontally  
-    fill_mode='nearest'  # Fill in missing pixels)    ```
+    fill_mode='nearest'  # Fill in missing pixels)   
 
     
 
@@ -97,7 +97,7 @@ test_datagen = ImageDataGenerator(rescale=1.0/255)
 
 
 - Now we will set up three image generators for training, validation, and testing data using the flow_from_dataframe method provided by TensorFlow's ImageDataGenerator class.
-- 
+ 
 ```
 train_images = train_datagen.flow_from_dataframe(train_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
 val_images = valid_datagen.flow_from_dataframe(validation_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
@@ -130,7 +130,7 @@ model.add(MaxPool2D(pool_size=(2,2)))
         model.add(Dense(16, activation='relu')) 
 
         # Output layer
-        model.add(Dense(len(target_label), activation='softmax'))```
+        model.add(Dense(len(target_label), activation='softmax'))
         
 
 
