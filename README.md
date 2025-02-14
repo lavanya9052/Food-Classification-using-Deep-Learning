@@ -85,9 +85,10 @@ from sklearn.metrics import confusion_matrix
     zoom_range=0.2,  # Randomly zoom in images  
     horizontal_flip=True,  # Flip images horizontally  
     fill_mode='nearest'  # Fill in missing pixels  
-)
+)'''
+
 #We only rescale the validation and test images; we don't augment them, so we can accurately measure how well the model performs on real-world data.
-valid_datagen = ImageDataGenerator(rescale=1.0/255)
+'''valid_datagen = ImageDataGenerator(rescale=1.0/255)
 test_datagen = ImageDataGenerator(rescale=1.0/255)```
 
 
@@ -125,8 +126,7 @@ model.add(MaxPool2D(pool_size=(2,2)))
         model.add(Dense(16, activation='relu')) 
 
         # Output layer
-        model.add(Dense(len(target_label), activation='softmax'))
-''
+        model.add(Dense(len(target_label), activation='softmax'))'''
 
 2.**VGG16 Model:** We used a pre-trained VGG16 model.  We froze the early layers (which already know a lot about images) and fine-tuned the later layers to recognize our specific food categories.  This "transfer learning" approach is faster and often more accurate.
 '''
