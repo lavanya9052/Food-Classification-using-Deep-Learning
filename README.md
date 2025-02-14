@@ -84,18 +84,20 @@ from sklearn.metrics import confusion_matrix
     shear_range=0.2,  # Apply shearing transformations  
     zoom_range=0.2,  # Randomly zoom in images  
     horizontal_flip=True,  # Flip images horizontally  
-    fill_mode='nearest'  # Fill in missing pixels  
-)```
+    fill_mode='nearest'  # Fill in missing pixels)    ```
+
+    
 
 
 #We only rescale the validation and test images; we don't augment them, so we can accurately measure how well the model performs on real-world data.
 ```
 valid_datagen = ImageDataGenerator(rescale=1.0/255)
-test_datagen = ImageDataGenerator(rescale=1.0/255)```
+test_datagen = ImageDataGenerator(rescale=1.0/255)
 ```
 
 
 - Now we will set up three image generators for training, validation, and testing data using the flow_from_dataframe method provided by TensorFlow's ImageDataGenerator class.
+- 
 ```
 train_images = train_datagen.flow_from_dataframe(train_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
 val_images = valid_datagen.flow_from_dataframe(validation_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
@@ -128,8 +130,9 @@ model.add(MaxPool2D(pool_size=(2,2)))
         model.add(Dense(16, activation='relu')) 
 
         # Output layer
-        model.add(Dense(len(target_label), activation='softmax'))
-        ```
+        model.add(Dense(len(target_label), activation='softmax'))```
+        
+
 
 2.**VGG16 Model:** We used a pre-trained VGG16 model.  We froze the early layers (which already know a lot about images) and fine-tuned the later layers to recognize our specific food categories.  This "transfer learning" approach is faster and often more accurate.
 
@@ -141,6 +144,7 @@ vgg16=VGG16(input_shape=image_size + [3],weights='imagenet',include_top=False)
       predict = Dense(len(self.target_lables), activation='softmax')(x)
       model=Model(inputs=vgg16.inputs,outputs=predict)
 ```
+
 
 3.**ResNet Model:**  Like VGG16, we used a pre-trained ResNet model. ResNet is also good at transfer learning and helps avoid some training problems.
 
