@@ -71,6 +71,7 @@ from sklearn.metrics import confusion_matrix
 - This also helps with memory management because the images are loaded and processed as needed during training.
 - We also rescale the images, which means we adjust the pixel values to be between 0 and 1. 
 
+    ```text
     train_datagen = ImageDataGenerator(
     rescale=1.0/255,  # Normalize pixel values  
     rotation_range=20,  # Randomly rotate images  
