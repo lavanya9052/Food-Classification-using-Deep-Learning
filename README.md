@@ -230,7 +230,7 @@ After training, we checked how well our model performed.  Here's what we did:
 - Flask serves the model, processing uploaded images and returning predictions, which are then displayed on the user-friendly web interface.
 
 
-![Image](https://github.com/user-attachments/assets/29d53cb3-4c09-40c0-89f7-f57311a214f8)
+![Image](https://github.com/user-attachments/assets/a468b661-3726-4255-a238-1e1fd2d280c9)
 
 - We set up a local development environment using PyCharm (or any IDE) to build and test our Flask-based web application.
 - This allowed us to simulate the real-world user experience, with users able to upload images and receive predictions in real time.
