@@ -174,9 +174,9 @@ resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_to
 
 - After training, we saved each model so we could use it later.
 -  After training, models are saved in one of the following formats:
-  - HDF5 (.h5)
-  - Pickle (.pkl)
-  - Keras model format
+     - HDF5 (.h5)
+     - Pickle (.pkl)
+     - Keras model format
 - Saving the Trained Model
 
    For example, we saved one of our models as model.save("food_classification_model.keras**). #save the model in keras format.
@@ -198,8 +198,8 @@ After training, we checked how well our model performed.  Here's what we did:
 
      - **True Positives:** How many times the model correctly said "yes" when the answer was actually "yes."
      - **True Negatives:** How many times the model correctly said "no" when the answer was actually "no."
-      - **False Positives:** How many times the model incorrectly said "yes" when the answer was actually "no."
-      - **False Negatives:** How many times the model incorrectly said "no" when the answer was actually "yes."
+     - **False Positives:** How many times the model incorrectly said "yes" when the answer was actually "no."
+     - **False Negatives:** How many times the model incorrectly said "no" when the answer was actually "yes."
 
 - Using these, we calculated:
 
