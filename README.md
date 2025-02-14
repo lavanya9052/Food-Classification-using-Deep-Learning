@@ -1,6 +1,6 @@
 #Food-Image-Classification
 ===================
-##Project Overview
+##**Project Overview**
 
 The goal of this project is to build a model that can accurately classify images of food into predefined categories. With the rise of health and fitness apps, such a model can be integrated into applications to automatically detect and log consumed food items based on user-uploaded images.This project uses deep learning to identify 34 different types of food.   It involves gathering food images, ensuring a balanced dataset, training and testing different AI models, and making the final model available online through a simple web app.
 
@@ -114,9 +114,107 @@ We tried three different deep learning  models to classify food images:
 
 1.**Our Own Model:** We built a CNN from scratch, using layers that learn features, shrink the image size, and make the final classification.  It has 34 output neurons (one for each food type) and uses a "softmax" function to give probabilities for each type.
 
+'''
+model.add(Conv2D(128, kernel_size=(3,3), input_shape=(256, 256, 3), padding='same', activation='relu'))
+model.add(MaxPool2D(pool_size=(2,2)))
+        # Flattening layer
+        model.add(Flatten())
+
+        # Fully connected layers
+        model.add(Dense(32, activation='relu')) 
+        model.add(Dense(16, activation='relu')) 
+
+        # Output layer
+        model.add(Dense(len(target_label), activation='softmax'))
+''
+
 2.**VGG16 Model:** We used a pre-trained VGG16 model.  We froze the early layers (which already know a lot about images) and fine-tuned the later layers to recognize our specific food categories.  This "transfer learning" approach is faster and often more accurate.
+'''
+vgg16=VGG16(input_shape=image_size + [3],weights='imagenet',include_top=False)
+      for layers in vgg16.layers:
+        layers.trainable=False
+      x=Flatten()(vgg16.output)
+      predict = Dense(len(self.target_lables), activation='softmax')(x)
+      model=Model(inputs=vgg16.inputs,outputs=predict)
+'''
 
 3.**ResNet Model:**  Like VGG16, we used a pre-trained ResNet model. ResNet is also good at transfer learning and helps avoid some training problems.
+
+'''
+resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_top=False)
+            for layers in resnet50.layers:
+                layers.trainable = False
+
+            x = Flatten()(resnet50.output)
+            predict = Dense(len(target_labels), activation='softmax')(x)
+            model = Model(inputs=resnet50.inputs, outputs=predict)
+'''
+
+- Now let’s train the model. We will train our model for 10 epochs.
+  '''
+  model.compile(
+    optimizer='adam',
+    loss='categorical_crossentropy',
+    metrics=['accuracy']
+
+  model.fit(train_images,
+                     validation_data=val_images,
+                     epochs=10)
+)
+'''
+- After training, we saved each model so we could use it later.
+-  After training, models are saved in one of the following formats:
+  - HDF5 (.h5)
+  - Pickle (.pkl)
+  - Keras model format
+- Saving the Trained Model
+
+   For example, we saved one of our models as model.save("food_classification_model.keras**). #save the model in keras format.
+
+
+6.**Model Evaluation and Validation**
+
+After training, we checked how well our model performed.  Here's what we did:
+
+- **Loaded the model:** We loaded the saved, trained model.
+
+- **Made predictions:** We used the model to classify the test images and got its predictions.
+
+- **Made a confusion matrix:**
+    -  We created a table that shows where the model made correct and incorrect classifications.
+    -  This helps us understand what the model is good at and where it struggles.
+
+- **Calculated metrics:** From the confusion matrix, we calculated several important measures:
+
+   - **True Positives:** How many times the model correctly said "yes" when the answer was actually "yes."
+   - **True Negatives:** How many times the model correctly said "no" when the answer was actually "no."
+   - **False Positives:** How many times the model incorrectly said "yes" when the answer was actually "no."
+  - **False Negatives:** How many times the model incorrectly said "no" when the answer was actually "yes."
+
+- Using these, we calculated:
+
+   - Precision – The percentage of correctly predicted positive samples.
+   - Recall – The percentage of actual positives correctly identified.
+   - F1-score – A balance between precision and recall.
+   - Overall Accuracy – The proportion of correct predictions across all test samples.
+
+- Saved the results:
+   - We saved all these numbers in a structured way (like a dictionary) and also as a JSON file, so we could easily look at them later and compare different models.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
