@@ -183,6 +183,7 @@ resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_to
 
 
 6.**Model Evaluation and Validation**
+===================
 
 After training, we checked how well our model performed.  Here's what we did:
 
@@ -212,6 +213,14 @@ After training, we checked how well our model performed.  Here's what we did:
      -  We saved all these numbers in a structured way (like a dictionary) and also as a JSON file, so we could easily look at them later and compare different models.
 
 
+7.** Application Deployment**
+===================
+- After training and evaluation, the model is deployed for web-based food image classification.
+- Our trained model was deployed as a web application using Flask for the backend and HTML/CSS for the frontend.
+- Flask serves the model, processing uploaded images and returning predictions, which are then displayed on the user-friendly web interface.
+
+
+  
 
 
 
