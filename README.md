@@ -222,6 +222,9 @@ After training, we checked how well our model performed.  Here's what we did:
 
 ![Image](https://github.com/user-attachments/assets/29d53cb3-4c09-40c0-89f7-f57311a214f8)
 
+- We set up a local development environment using PyCharm (or any IDE) to build and test our Flask-based web application.
+- This allowed us to simulate the real-world user experience, with users able to upload images and receive predictions in real time.
+
   
 
 
