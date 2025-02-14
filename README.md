@@ -74,7 +74,7 @@ from sklearn.metrics import confusion_matrix
 - This also helps with memory management because the images are loaded and processed as needed during training.
 - We also rescale the images, which means we adjust the pixel values to be between 0 and 1. 
 
-    ```text
+    ```
     train_datagen = ImageDataGenerator(
     rescale=1.0/255,  # Normalize pixel values  
     rotation_range=20,  # Randomly rotate images  
@@ -88,9 +88,11 @@ from sklearn.metrics import confusion_matrix
 #We only rescale the validation and test images; we don't augment them, so we can accurately measure how well the model performs on real-world data.
 valid_datagen = ImageDataGenerator(rescale=1.0/255)
 test_datagen = ImageDataGenerator(rescale=1.0/255)
+'''
 
 
 - Now we will set up three image generators for training, validation, and testing data using the flow_from_dataframe method provided by TensorFlow's ImageDataGenerator class.
+
 
 train_images = train_datagen.flow_from_dataframe(train_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
 val_images = valid_datagen.flow_from_dataframe(validation_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
@@ -99,8 +101,8 @@ test_images = test_datagen.flow_from_dataframe(test_path,target_size=(224, 224),
 ```
 Found 5094 training images  belonging to 34 classes.
 Found 680 testing images  belonging to 34 classes.
-Found 1020 validated images belonging to 34 classes.
-```
+Found 1020 validated images belonging to 34 classes.'''
+
 
 
 5.**Implementing a Model**
