@@ -29,8 +29,11 @@ The goal of this project is to build a model that can accurately classify images
 -  First, we connected Colab to our Drive so we could use the data.
 -  Then, we imported all the Python libraries we needed, each one playing a specific role in the project.
 
+```text
 ###Data manipulation and numerical computation
 import numpy as np
+
+import pandas as pd  # Data handling  
 
 ###General machine learning utilities
 import sklearn
@@ -60,6 +63,7 @@ from tensorflow.keras.models import load_model
 
 ###Model evaluation (confusion matrix)
 from sklearn.metrics import confusion_matrix
+```text
 
 
 4.**Image Data Preprocessing and Enhancement**
@@ -96,6 +100,18 @@ test_images = test_datagen.flow_from_dataframe(test_path,target_size=(224, 224),
 Found 5094 training images  belonging to 34 classes.
 Found 680 testing images  belonging to 34 classes.
 Found 1020 validated images belonging to 34 classes.
+```text
+
+
+5.**Implementing a Model**
+===================
+We tried three different deep learning  models to classify food images:
+
+1.**Our Own Model:** We built a CNN from scratch, using layers that learn features, shrink the image size, and make the final classification.  It has 34 output neurons (one for each food type) and uses a "softmax" function to give probabilities for each type.
+
+2.**VGG16 Model:** We used a pre-trained VGG16 model.  We froze the early layers (which already know a lot about images) and fine-tuned the later layers to recognize our specific food categories.  This "transfer learning" approach is faster and often more accurate.
+
+3.**ResNet Model:**  Like VGG16, we used a pre-trained ResNet model. ResNet is also good at transfer learning and helps avoid some training problems.
 
 
 
