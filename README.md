@@ -17,9 +17,11 @@ The goal of this project is to build a model that can accurately classify images
 - We made sure our food image dataset was fair by having the same number of images for each of the 34 food types.
 -  We used Python programs to do this, giving each food category 200 images.
 -   Then, we split the dataset into three parts:
-     - Training Set:** 150 images per class
-      - Validation Set:** 30 images per class
-       - Testing Set:** 20 images per class
+   
+     - Training Set: 150 images per class
+      - Validation Set: 30 images per class
+       - Testing Set: 20 images per class
+         
 - After balancing and splitting, we put the whole dataset on Google Drive so it's easy to use.
 
 3.**Environment Initialization and Library Loading**
@@ -189,25 +191,25 @@ After training, we checked how well our model performed.  Here's what we did:
 - **Made predictions:** We used the model to classify the test images and got its predictions.
 
 - **Made a confusion matrix:**
-    -  We created a table that shows where the model made correct and incorrect classifications.
-    -  This helps us understand what the model is good at and where it struggles.
+      -  We created a table that shows where the model made correct and incorrect classifications.
+       -  This helps us understand what the model is good at and where it struggles.
 
 - **Calculated metrics:** From the confusion matrix, we calculated several important measures:
 
-   - **True Positives:** How many times the model correctly said "yes" when the answer was actually "yes."
-   - **True Negatives:** How many times the model correctly said "no" when the answer was actually "no."
-   - **False Positives:** How many times the model incorrectly said "yes" when the answer was actually "no."
-  - **False Negatives:** How many times the model incorrectly said "no" when the answer was actually "yes."
+     - **True Positives:** How many times the model correctly said "yes" when the answer was actually "yes."
+     - **True Negatives:** How many times the model correctly said "no" when the answer was actually "no."
+      - **False Positives:** How many times the model incorrectly said "yes" when the answer was actually "no."
+      - **False Negatives:** How many times the model incorrectly said "no" when the answer was actually "yes."
 
 - Using these, we calculated:
 
-   - Precision – The percentage of correctly predicted positive samples.
-   - Recall – The percentage of actual positives correctly identified.
-   - F1-score – A balance between precision and recall.
-   - Overall Accuracy – The proportion of correct predictions across all test samples.
+    - **Precision** – The percentage of correctly predicted positive samples.
+    - **Recall** – The percentage of actual positives correctly identified.
+    - **F1-score** – A balance between precision and recall.
+    - **Overall Accuracy** – The proportion of correct predictions across all test samples.
 
 - Saved the results:
-   - We saved all these numbers in a structured way (like a dictionary) and also as a JSON file, so we could easily look at them later and compare different models.
+     -  We saved all these numbers in a structured way (like a dictionary) and also as a JSON file, so we could easily look at them later and compare different models.
 
 
 
