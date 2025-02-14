@@ -1,6 +1,6 @@
 #Food-Image-Classification
 ===================
-##**Project Overview**
+**Project Overview**
 
 The goal of this project is to build a model that can accurately classify images of food into predefined categories. With the rise of health and fitness apps, such a model can be integrated into applications to automatically detect and log consumed food items based on user-uploaded images.This project uses deep learning to identify 34 different types of food.   It involves gathering food images, ensuring a balanced dataset, training and testing different AI models, and making the final model available online through a simple web app.
 
@@ -213,7 +213,7 @@ After training, we checked how well our model performed.  Here's what we did:
      -  We saved all these numbers in a structured way (like a dictionary) and also as a JSON file, so we could easily look at them later and compare different models.
 
 
-7.** Application Deployment**
+7.**Application Deployment**
 ===================
 - After training and evaluation, the model is deployed for web-based food image classification.
 - Our trained model was deployed as a web application using Flask for the backend and HTML/CSS for the frontend.
