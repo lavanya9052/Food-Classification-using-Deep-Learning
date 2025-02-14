@@ -192,8 +192,8 @@ After training, we checked how well our model performed.  Here's what we did:
 - **Made predictions:** We used the model to classify the test images and got its predictions.
 
 - **Made a confusion matrix:**
-      -  We created a table that shows where the model made correct and incorrect classifications.
-       -  This helps us understand what the model is good at and where it struggles.
+        - We created a table that shows where the model made correct and incorrect classifications.
+        - This helps us understand what the model is good at and where it struggles.
 
 - **Calculated metrics:** From the confusion matrix, we calculated several important measures:
 
