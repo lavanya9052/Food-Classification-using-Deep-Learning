@@ -209,7 +209,7 @@ After training, we checked how well our model performed.  Here's what we did:
     - **F1-score** – A balance between precision and recall.
     - **Overall Accuracy** – The proportion of correct predictions across all test samples.
  
- <img width="250" alt="Image" src="https://github.com/user-attachments/assets/d4190ed1-8c97-4734-b8eb-dabb62a6f8e5" />
+ <img width="350" alt="Image" src="https://github.com/user-attachments/assets/bff207b8-99ef-4c2a-8067-e3628bdfe134" />
 
 - Saved the results:
      -  We saved all these numbers in a structured way (like a dictionary) and also as a JSON file, so we could easily look at them later and compare different models.
