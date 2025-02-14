@@ -17,9 +17,9 @@ The goal of this project is to build a model that can accurately classify images
 - We made sure our food image dataset was fair by having the same number of images for each of the 34 food types.
 -  We used Python programs to do this, giving each food category 200 images.
 -   Then, we split the dataset into three parts:
-  * **Training Set:** 150 images per class
-  * **Validation Set:** 30 images per class
-  ** **Testing Set:** 20 images per class
+     - Training Set:** 150 images per class
+      - Validation Set:** 30 images per class
+       - Testing Set:** 20 images per class
 - After balancing and splitting, we put the whole dataset on Google Drive so it's easy to use.
 
 3.**Environment Initialization and Library Loading**
