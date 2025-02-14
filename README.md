@@ -172,13 +172,13 @@ resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_to
   model.compile(
     optimizer='adam',
     loss='categorical_crossentropy',
-    metrics=['accuracy']
+    metrics=['accuracy'])
 
   model.fit(train_images,
                      validation_data=val_images,
                      epochs=10)
-)
-```
+
+
 
 - After training, we saved each model so we could use it later.
 -  After training, models are saved in one of the following formats:
@@ -187,7 +187,7 @@ resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_to
      - Keras model format
 - Saving the Trained Model
 
-   For example, we saved one of our models as model.save("food_classification_model.keras**). #save the model in keras format.
+   For example, we saved one of our models as model.save("food_classification_model.keras"). #save the model in keras format.
 
 
 6.**Model Evaluation and Validation**
