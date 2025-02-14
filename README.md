@@ -1,4 +1,4 @@
-#Food-Image-Classification
+**Food-Image-Classification**
 ===================
 **Project Overview**
 
