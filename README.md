@@ -10,7 +10,7 @@ The goal of this project is to build a model that can accurately classify images
 - The dataset used for this project consists of images of various food items categorized into different classes. Each image is labeled with its corresponding food category.
 - The dataset, consisting of images categorized into 34 food classes, was acquired from Kaggle.
 - To download the dataset, please visit the following link:
-- ![click here](Food Image Classification Dataset)
+- ![click here](https://www.kaggle.com/datasets/harishkumardatalab/food-image-classification-dataset)
 
 2.**Data Balancing**
 ===================
@@ -85,20 +85,22 @@ from sklearn.metrics import confusion_matrix
     zoom_range=0.2,  # Randomly zoom in images  
     horizontal_flip=True,  # Flip images horizontally  
     fill_mode='nearest'  # Fill in missing pixels  
-)'''
+)
+```
 
 #We only rescale the validation and test images; we don't augment them, so we can accurately measure how well the model performs on real-world data.
-'''valid_datagen = ImageDataGenerator(rescale=1.0/255)
+```
+valid_datagen = ImageDataGenerator(rescale=1.0/255)
 test_datagen = ImageDataGenerator(rescale=1.0/255)```
-
+```
 
 
 - Now we will set up three image generators for training, validation, and testing data using the flow_from_dataframe method provided by TensorFlow's ImageDataGenerator class.
-
+```
 train_images = train_datagen.flow_from_dataframe(train_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
 val_images = valid_datagen.flow_from_dataframe(validation_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
 test_images = test_datagen.flow_from_dataframe(test_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
-
+```
 
 ```
 Found 5094 training images  belonging to 34 classes.
@@ -115,7 +117,7 @@ We tried three different deep learning  models to classify food images:
 
 1.**Our Own Model:** We built a CNN from scratch, using layers that learn features, shrink the image size, and make the final classification.  It has 34 output neurons (one for each food type) and uses a "softmax" function to give probabilities for each type.
 
-'''
+```
 model.add(Conv2D(128, kernel_size=(3,3), input_shape=(256, 256, 3), padding='same', activation='relu'))
 model.add(MaxPool2D(pool_size=(2,2)))
         # Flattening layer
@@ -126,21 +128,23 @@ model.add(MaxPool2D(pool_size=(2,2)))
         model.add(Dense(16, activation='relu')) 
 
         # Output layer
-        model.add(Dense(len(target_label), activation='softmax'))'''
+        model.add(Dense(len(target_label), activation='softmax'))
+        ```
 
 2.**VGG16 Model:** We used a pre-trained VGG16 model.  We froze the early layers (which already know a lot about images) and fine-tuned the later layers to recognize our specific food categories.  This "transfer learning" approach is faster and often more accurate.
-'''
+
+```
 vgg16=VGG16(input_shape=image_size + [3],weights='imagenet',include_top=False)
       for layers in vgg16.layers:
         layers.trainable=False
       x=Flatten()(vgg16.output)
       predict = Dense(len(self.target_lables), activation='softmax')(x)
       model=Model(inputs=vgg16.inputs,outputs=predict)
-'''
+```
 
 3.**ResNet Model:**  Like VGG16, we used a pre-trained ResNet model. ResNet is also good at transfer learning and helps avoid some training problems.
 
-'''
+```
 resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_top=False)
             for layers in resnet50.layers:
                 layers.trainable = False
@@ -148,10 +152,11 @@ resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_to
             x = Flatten()(resnet50.output)
             predict = Dense(len(target_labels), activation='softmax')(x)
             model = Model(inputs=resnet50.inputs, outputs=predict)
-'''
+```
 
 - Now let’s train the model. We will train our model for 10 epochs.
-  '''
+  
+  ```
   model.compile(
     optimizer='adam',
     loss='categorical_crossentropy',
@@ -161,7 +166,7 @@ resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_to
                      validation_data=val_images,
                      epochs=10)
 )
-'''
+```
 - After training, we saved each model so we could use it later.
 -  After training, models are saved in one of the following formats:
   - HDF5 (.h5)
