@@ -63,7 +63,7 @@ from tensorflow.keras.models import load_model
 
 ###Model evaluation (confusion matrix)
 from sklearn.metrics import confusion_matrix
-'''
+```
 
 
 4.**Image Data Preprocessing and Enhancement**
@@ -104,7 +104,8 @@ Found 5094 training images  belonging to 34 classes.
 
 Found 680 testing images  belonging to 34 classes.
 
-Found 1020 validated images belonging to 34 classes.```
+Found 1020 validated images belonging to 34 classes.
+```
 
 
 5.**Implementing a Model**
