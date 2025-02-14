@@ -134,7 +134,8 @@ model.add(MaxPool2D(pool_size=(2,2)))
         
 
 
-2.**VGG16 Model:** We used a pre-trained VGG16 model.  We froze the early layers (which already know a lot about images) and fine-tuned the later layers to recognize our specific food categories.  This "transfer learning" approach is faster and often more accurate.
+2.**VGG16 Model:**  We used a pre-trained VGG16 model.  We froze the early layers (which already know a lot about images) and fine-tuned the later layers to recognize our specific food categories.  This "transfer learning" approach is faster and often more accurate.
+
 
 ```
 vgg16=VGG16(input_shape=image_size + [3],weights='imagenet',include_top=False)
@@ -143,7 +144,6 @@ vgg16=VGG16(input_shape=image_size + [3],weights='imagenet',include_top=False)
       x=Flatten()(vgg16.output)
       predict = Dense(len(self.target_lables), activation='softmax')(x)
       model=Model(inputs=vgg16.inputs,outputs=predict)
-```
 
 
 3.**ResNet Model:**  Like VGG16, we used a pre-trained ResNet model. ResNet is also good at transfer learning and helps avoid some training problems.
@@ -156,7 +156,6 @@ resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_to
             x = Flatten()(resnet50.output)
             predict = Dense(len(target_labels), activation='softmax')(x)
             model = Model(inputs=resnet50.inputs, outputs=predict)
-```
 
 - Now let’s train the model. We will train our model for 10 epochs.
   
@@ -170,7 +169,7 @@ resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_to
                      validation_data=val_images,
                      epochs=10)
 )
-```
+
 - After training, we saved each model so we could use it later.
 -  After training, models are saved in one of the following formats:
   - HDF5 (.h5)
