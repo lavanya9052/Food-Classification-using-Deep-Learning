@@ -220,6 +220,9 @@ After training, we checked how well our model performed.  Here's what we did:
 - Flask serves the model, processing uploaded images and returning predictions, which are then displayed on the user-friendly web interface.
 
 
+  ![Image](https://github.com/user-attachments/assets/ae713c97-b881-4415-aac2-389b2bc380ed)
+
+
   
 
 
