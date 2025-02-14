@@ -85,8 +85,8 @@ from sklearn.metrics import confusion_matrix
     zoom_range=0.2,  # Randomly zoom in images  
     horizontal_flip=True,  # Flip images horizontally  
     fill_mode='nearest'  # Fill in missing pixels  
-)
-```
+)```
+
 
 #We only rescale the validation and test images; we don't augment them, so we can accurately measure how well the model performs on real-world data.
 ```
