@@ -10,7 +10,7 @@ The goal of this project is to build a model that can accurately classify images
 - The dataset used for this project consists of images of various food items categorized into different classes. Each image is labeled with its corresponding food category.
 - The dataset, consisting of images categorized into 34 food classes, was acquired from Kaggle.
 - To download the dataset, please visit the following link:
-- [click here](Food Image Classification Dataset)
+- ![click here](Food Image Classification Dataset)
 
 2.**Data Balancing**
 ===================
