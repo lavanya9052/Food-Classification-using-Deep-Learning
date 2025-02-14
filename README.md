@@ -208,6 +208,8 @@ After training, we checked how well our model performed.  Here's what we did:
     - **Recall** – The percentage of actual positives correctly identified.
     - **F1-score** – A balance between precision and recall.
     - **Overall Accuracy** – The proportion of correct predictions across all test samples.
+ 
+      <img width="216" alt="Image" src="https://github.com/user-attachments/assets/ea16ebef-bb34-4803-aa3a-060fb586a1c5" />
 
 - Saved the results:
      -  We saved all these numbers in a structured way (like a dictionary) and also as a JSON file, so we could easily look at them later and compare different models.
