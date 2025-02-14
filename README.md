@@ -91,7 +91,7 @@ from sklearn.metrics import confusion_matrix
     
 
 
-#We only rescale the validation and test images; we don't augment them, so we can accurately measure how well the model performs on real-world data.
+- We only rescale the validation and test images; we don't augment them, so we can accurately measure how well the model performs on real-world data.
 ```
 valid_datagen = ImageDataGenerator(rescale=1.0/255)
 test_datagen = ImageDataGenerator(rescale=1.0/255)
@@ -121,8 +121,7 @@ We tried three different deep learning  models to classify food images:
 
 1.**Our Own Model:** We built a CNN from scratch, using layers that learn features, shrink the image size, and make the final classification.  It has 34 output neurons (one for each food type) and uses a "softmax" function to give probabilities for each type.
 
-```
-model.add(Conv2D(128, kernel_size=(3,3), input_shape=(256, 256, 3), padding='same', activation='relu'))
+```model.add(Conv2D(128, kernel_size=(3,3), input_shape=(256, 256, 3), padding='same', activation='relu'))
 model.add(MaxPool2D(pool_size=(2,2)))
         # Flattening layer
         model.add(Flatten())
@@ -133,7 +132,7 @@ model.add(MaxPool2D(pool_size=(2,2)))
 
         # Output layer
         model.add(Dense(len(target_label), activation='softmax'))
-        
+```
 
 
 2.**VGG16 Model:**  We used a pre-trained VGG16 model.  We froze the early layers (which already know a lot about images) and fine-tuned the later layers to recognize our specific food categories.  This "transfer learning" approach is faster and often more accurate.
@@ -146,6 +145,7 @@ vgg16=VGG16(input_shape=image_size + [3],weights='imagenet',include_top=False)
       x=Flatten()(vgg16.output)
       predict = Dense(len(self.target_lables), activation='softmax')(x)
       model=Model(inputs=vgg16.inputs,outputs=predict)
+```
 
 
 3.**ResNet Model:**  Like VGG16, we used a pre-trained ResNet model. ResNet is also good at transfer learning and helps avoid some training problems.
@@ -158,6 +158,7 @@ resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_to
             x = Flatten()(resnet50.output)
             predict = Dense(len(target_labels), activation='softmax')(x)
             model = Model(inputs=resnet50.inputs, outputs=predict)
+```
 
 - Now let’s train the model. We will train our model for 10 epochs.
   
@@ -171,6 +172,7 @@ resnet50 = ResNet50(input_shape=image_size + [3], weights='imagenet', include_to
                      validation_data=val_images,
                      epochs=10)
 )
+```
 
 - After training, we saved each model so we could use it later.
 -  After training, models are saved in one of the following formats:
