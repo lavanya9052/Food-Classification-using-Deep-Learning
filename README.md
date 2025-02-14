@@ -29,7 +29,7 @@ The goal of this project is to build a model that can accurately classify images
 -  First, we connected Colab to our Drive so we could use the data.
 -  Then, we imported all the Python libraries we needed, each one playing a specific role in the project.
 
-```text
+```
 ###Data manipulation and numerical computation
 import numpy as np
 
@@ -63,6 +63,7 @@ from tensorflow.keras.models import load_model
 
 ###Model evaluation (confusion matrix)
 from sklearn.metrics import confusion_matrix
+'''
 
 
 4.**Image Data Preprocessing and Enhancement**
@@ -87,22 +88,23 @@ from sklearn.metrics import confusion_matrix
 )
 #We only rescale the validation and test images; we don't augment them, so we can accurately measure how well the model performs on real-world data.
 valid_datagen = ImageDataGenerator(rescale=1.0/255)
-test_datagen = ImageDataGenerator(rescale=1.0/255)
-'''
+test_datagen = ImageDataGenerator(rescale=1.0/255)```
+
 
 
 - Now we will set up three image generators for training, validation, and testing data using the flow_from_dataframe method provided by TensorFlow's ImageDataGenerator class.
-
 
 train_images = train_datagen.flow_from_dataframe(train_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
 val_images = valid_datagen.flow_from_dataframe(validation_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
 test_images = test_datagen.flow_from_dataframe(test_path,target_size=(224, 224),class_mode='categorical',batch_size=32)
 
+
 ```
 Found 5094 training images  belonging to 34 classes.
-Found 680 testing images  belonging to 34 classes.
-Found 1020 validated images belonging to 34 classes.'''
 
+Found 680 testing images  belonging to 34 classes.
+
+Found 1020 validated images belonging to 34 classes.```
 
 
 5.**Implementing a Model**
